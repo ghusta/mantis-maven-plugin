@@ -27,3 +27,6 @@ Help
 
 2. Maven & GitHub :
     * Maven + GitHub : [Maven Tips and Tricks: Using GitHub](http://www.sonatype.com/people/2009/09/maven-tips-and-tricks-using-github/)
+
+3. Eclipse & GitHub :
+    * Eclipse EGit + GitHub : [EGit/GitHub/User Guide](http://wiki.eclipse.org/EGit/GitHub/UserGuide)
