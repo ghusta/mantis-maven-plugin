@@ -16,28 +16,83 @@ package fr.husta.maven.plugin;
  * limitations under the License.
  */
 
+import java.math.BigInteger;
 import java.rmi.RemoteException;
 
 import javax.xml.rpc.ServiceException;
 
+import org.apache.maven.model.IssueManagement;
 import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.project.MavenProject;
 
 import biz.futureware.mantis.rpc.soap.client.MantisConnectPortType;
 
+import fr.husta.maven.plugin.util.MantisConnector;
 import fr.husta.maven.plugin.util.MantisUtils;
+import fr.husta.maven.plugin.util.ReleaseUtils;
 
 /**
  * Adds a version to a project.
  *
  * @goal add-project-version
- * @requiresProject false
+ * @requiresProject true
  * 
  */
-public class AddProjectVersionMojo extends AbstractSecureMantisMojo
-{
+public class AddProjectVersionMojo extends AbstractSecureMantisMojo {
 
-    public void execute() throws MojoExecutionException
-    {
-        throw new MojoExecutionException("Error", new UnsupportedOperationException("TODO"));
-    }
+	/**
+	 * @parameter default-value="${project}"
+	 * @required
+	 * @readonly	 
+	 */
+	protected MavenProject project;
+
+	/**
+	 * @parameter expression="${projectName}" default-value=${project.artifactId}
+	 * @required
+	 */
+	protected String projectName;
+
+	/**
+	 * @parameter expression="${versionName}" default-value=${project.version}
+	 * @required
+	 */
+	protected String versionName;
+
+	protected IssueManagement issueManagement;
+
+	public void execute() throws MojoExecutionException {
+		issueManagement = project.getIssueManagement();
+		if (issueManagement != null) {
+			getLog().debug(
+					"IssueManagement -> system = "
+							+ issueManagement.getSystem());
+			getLog().debug(
+					"IssueManagement -> url = " + issueManagement.getUrl());
+		}
+
+		try {
+			// connection to Mantis SOAP API
+			MantisConnectPortType portType = MantisUtils
+					.createConnector(getMantisSoapApiUrl());
+			MantisConnector mantisConnector = new MantisConnector(portType);
+			// find ProjectId from Name
+			BigInteger projectId = mantisConnector.getProjectIdByName(login,
+					password, projectName);
+			// call to web service method
+			String releaseVersion = ReleaseUtils.getReleaseVersion(versionName);
+			getLog().info("Version '" + releaseVersion + "' to be created.");
+			mantisConnector.addProjectVersion(login, password, projectId,
+					releaseVersion);
+			getLog().info("Version '" + releaseVersion + "' created in Mantis.");
+
+		} catch (ServiceException e) {
+			// getLog().error(e.getMessage());
+			throw new MojoExecutionException(e.getMessage(), e);
+		} catch (RemoteException e) {
+			// getLog().error(e.getMessage());
+			throw new MojoExecutionException(e.getMessage(), e);
+		}
+
+	}
 }
