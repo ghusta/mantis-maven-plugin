@@ -29,7 +29,7 @@ import fr.husta.maven.plugin.util.MantisUtils;
 /**
  * Adds a version to a project.
  *
- * @goal addProjectVersion
+ * @goal add-project-version
  * @requiresProject false
  * 
  */
