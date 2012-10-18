@@ -28,6 +28,10 @@ public class ReleaseUtils {
 					- SNAPSHOT_SUFFIX.length());
 		}
 
+		if (pomVersion != null && pomVersion.endsWith(SNAPSHOT_SUFFIX) == false) {
+			releaseVersion = pomVersion;
+		}
+
 		if (releaseVersion == null) {
 			throw new MojoExecutionException("Couldn't find the release '"
 					+ pomVersion + "' among the supplied version.");
