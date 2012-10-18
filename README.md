@@ -10,7 +10,7 @@ Live test of the web service on the MantisBT site : [Test it](http://www.mantisb
 
 Goals
 -----
-1. **mantis:addProjectVersion** - Create a project's version - Method _mc_project_version_add_
+1. **mantis:add-project-version** - Create a project's version - Method _mc_project_version_add_
 2. **mantis:getVersion** - Displays version of Mantis server - Method _mc_version_
 
 
