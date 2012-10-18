@@ -19,10 +19,11 @@
 		<url>https://github.com/ghusta/mantis-maven-plugin/issues</url>
 	</issueManagement>
 
-	<!-- <scm> <url>https://github.com/kevinsawicki/github-maven-example</url> 
-		<connection>scm:git:git://github.com/kevinsawicki/github-maven-example.git</connection> 
-		<developerConnection>scm:git:git@github.com:kevinsawicki/github-maven-example.git</developerConnection> 
-		</scm> -->
+	<scm>
+		<connection>scm:git:git://github.com/ghusta/mantis-maven-plugin.git</connection>
+		<developerConnection>scm:git:git@github.com:ghusta/mantis-maven-plugin.git</developerConnection>
+		<url>https://github.com/ghusta/mantis-maven-plugin</url>
+	</scm>
 
 	<developers>
 		<developer>
