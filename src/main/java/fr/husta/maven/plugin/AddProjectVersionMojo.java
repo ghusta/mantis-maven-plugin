@@ -69,6 +69,12 @@ public class AddProjectVersionMojo extends AbstractSecureMantisMojo {
 							+ issueManagement.getSystem());
 			getLog().debug(
 					"IssueManagement -> url = " + issueManagement.getUrl());
+			
+			final String ISSUE_MNGT_MANTIS = "Mantis";
+			if (issueManagement.getSystem() != null && ISSUE_MNGT_MANTIS.equals(issueManagement.getSystem()) == false)
+			{
+				getLog().warn("IssueManagement -> system should be '" + ISSUE_MNGT_MANTIS + "'.");
+			}
 		}
 
 		try {
