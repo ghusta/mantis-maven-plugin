@@ -29,6 +29,7 @@ Help
     * Maven + GitHub : [Maven Tips and Tricks: Using GitHub](http://www.sonatype.com/people/2009/09/maven-tips-and-tricks-using-github/)
 
 3. Eclipse & GitHub :
+    * GitHub links for Eclipse : [Git in Eclipse](http://eclipse.github.com/)
     * Eclipse EGit + GitHub : [EGit/GitHub/User Guide](http://wiki.eclipse.org/EGit/GitHub/UserGuide)
     * Eclipse GitHub plugin : [Update Site](http://download.eclipse.org/egit/github/updates-nightly)
     * Git with Eclipse : [Git with Eclipse (EGit) - Tutorial](http://www.vogella.com/articles/EGit/article.html)
