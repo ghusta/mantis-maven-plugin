@@ -23,4 +23,4 @@ Help
     * Maven Plugin Plugin : [Configuring Generation of Help Mojo](http://maven.apache.org/plugin-tools/maven-plugin-plugin/examples/generate-help.html)
     * Book "_Better builds with Maven_" : [Developing Custom Maven Plugins](http://www.maestrodev.com/better-builds-with-maven/developing-custom-maven-plugins/)
 
-    * Maven + GitHub : [](http://www.sonatype.com/people/2009/09/maven-tips-and-tricks-using-github/)
+    * Maven + GitHub : [???](http://www.sonatype.com/people/2009/09/maven-tips-and-tricks-using-github/)
