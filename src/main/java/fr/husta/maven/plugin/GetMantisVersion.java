@@ -13,7 +13,7 @@ import fr.husta.maven.plugin.util.MantisUtils;
 /**
  * Displays version of Mantis server.
  * 
- * @goal get-version
+ * @goal display-version
  * @requiresProject false
  *
  */
