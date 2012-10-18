@@ -17,23 +17,29 @@ import fr.husta.maven.plugin.util.MantisUtils;
  * @requiresProject false
  *
  */
-public class GetMantisVersion extends AbstractMantisMojo {
+public class GetMantisVersion extends AbstractMantisMojo
+{
 
-	public void execute() throws MojoExecutionException, MojoFailureException {
-		try {
-			MantisConnectPortType portType = MantisUtils
-					.createConnector(getMantisSoapApiUrl());
+    public void execute() throws MojoExecutionException, MojoFailureException
+    {
+        try
+        {
+            MantisConnectPortType portType = MantisUtils.createConnector(getMantisSoapApiUrl());
 
-			String version = portType.mc_version();
-			getLog().info("Mantis Version : " + version);
+            String version = portType.mc_version();
+            getLog().info("Mantis Version : " + version);
 
-		} catch (ServiceException e) {
-			// getLog().error(e.getMessage());
-			throw new MojoExecutionException(e.getMessage(), e);
-		} catch (RemoteException e) {
-			// getLog().error(e.getMessage());
-			throw new MojoExecutionException(e.getMessage(), e);
-		}
-	}
+        }
+        catch (ServiceException e)
+        {
+            // getLog().error(e.getMessage());
+            throw new MojoExecutionException(e.getMessage(), e);
+        }
+        catch (RemoteException e)
+        {
+            // getLog().error(e.getMessage());
+            throw new MojoExecutionException(e.getMessage(), e);
+        }
+    }
 
 }
