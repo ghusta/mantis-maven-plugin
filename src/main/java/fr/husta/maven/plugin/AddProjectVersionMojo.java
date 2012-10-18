@@ -27,7 +27,7 @@ import biz.futureware.mantis.rpc.soap.client.MantisConnectPortType;
 import fr.husta.maven.plugin.util.MantisUtils;
 
 /**
- * Adds a project's version.
+ * Adds a version to a project.
  *
  * @goal addProjectVersion
  * @requiresProject false
