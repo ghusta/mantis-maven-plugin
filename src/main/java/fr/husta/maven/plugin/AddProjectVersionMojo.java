@@ -33,10 +33,11 @@ import fr.husta.maven.plugin.util.MantisUtils;
  * @requiresProject false
  * 
  */
-public class AddProjectVersionMojo extends AbstractMantisMojo {
+public class AddProjectVersionMojo extends AbstractSecureMantisMojo
+{
 
-	public void execute() throws MojoExecutionException {
-		throw new MojoExecutionException("Error",
-				new UnsupportedOperationException("TODO"));
-	}
+    public void execute() throws MojoExecutionException
+    {
+        throw new MojoExecutionException("Error", new UnsupportedOperationException("TODO"));
+    }
 }
