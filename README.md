@@ -30,5 +30,6 @@ Help
 
 3. Eclipse & GitHub :
     * Eclipse EGit + GitHub : [EGit/GitHub/User Guide](http://wiki.eclipse.org/EGit/GitHub/UserGuide)
+    * Eclipse GitHub plugin : [Update Site](http://download.eclipse.org/egit/github/updates-nightly)
     * Git with Eclipse : [Git with Eclipse (EGit) - Tutorial](http://www.vogella.com/articles/EGit/article.html)
     * Slides about EGit & GitHub [Using The EGit Eclipse Plugin With Git Hub](http://www.slideshare.net/...)
