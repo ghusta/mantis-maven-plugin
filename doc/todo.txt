@@ -1,5 +1,5 @@
 Pour plugin m2e :
 * http://wiki.eclipse.org/M2E_plugin_execution_not_covered
 
-Implémenter (pour m2e 1.1) :
+Implementer (pour m2e 1.1) :
 http://wiki.eclipse.org/M2E_plugin_execution_not_covered#lifecycle_mapping_metadata_provided_by_maven_plugin
