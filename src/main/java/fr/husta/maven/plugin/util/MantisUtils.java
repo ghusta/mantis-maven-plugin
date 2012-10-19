@@ -13,13 +13,15 @@ import biz.futureware.mantis.rpc.soap.client.MantisConnectPortType;
  */
 public class MantisUtils {
 
+    public static final String SOAP_API_URL_SUFFIX = "/api/soap/mantisconnect.php";
+
 	private MantisUtils() {
 	}
 
 	/**
 	 * Initialize a web service connection.
 	 * 
-	 * @param url
+	 * @param url Endpoint URL
 	 * @return
 	 * @throws ServiceException
 	 */
