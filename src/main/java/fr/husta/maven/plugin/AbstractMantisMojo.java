@@ -2,6 +2,8 @@ package fr.husta.maven.plugin;
 
 import org.apache.maven.plugin.AbstractMojo;
 
+import fr.husta.maven.plugin.util.MantisUtils;
+
 /**
  * Abstract class for Mantis Mojos.
  * 
@@ -9,8 +11,6 @@ import org.apache.maven.plugin.AbstractMojo;
  */
 public abstract class AbstractMantisMojo extends AbstractMojo
 {
-
-    protected static final String SOAP_API_URL_SUFFIX = "/api/soap/mantisconnect.php";
 
     /**
      * Complete Mantis server web URI including protocol and port number. 
@@ -30,7 +30,7 @@ public abstract class AbstractMantisMojo extends AbstractMojo
         String res = null;
         if (mantisHost != null)
         {
-            res = mantisHost + SOAP_API_URL_SUFFIX;
+            res = mantisHost + MantisUtils.SOAP_API_URL_SUFFIX;
         }
 
         return res;
