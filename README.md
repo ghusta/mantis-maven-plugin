@@ -22,8 +22,9 @@ Help
     * Maven Plugin API : [The Descriptor and Annotations](http://maven.apache.org/developers/mojo-api-specification.html#The_Descriptor_and_Annotations)
     * Maven Plugin Plugin : [Configuring Generation of Help Mojo](http://maven.apache.org/plugin-tools/maven-plugin-plugin/examples/generate-help.html)
     * Maven Plugin Prefix : [Introduction to Plugin Prefix Resolution](http://maven.apache.org/guides/introduction/introduction-to-plugin-prefix-mapping.html)
-    * Book "_Better Builds with Maven_" : [Developing Custom Maven Plugins](http://www.maestrodev.com/better-builds-with-maven/developing-custom-maven-plugins/)
-    * Book "_Maven: The Complete Reference_" : [Writing Plugins](http://www.sonatype.com/books/mvnref-book/reference/writing-plugins.html)
+    * Book _"Better Builds with Maven"_ : [Developing Custom Maven Plugins](http://www.maestrodev.com/better-builds-with-maven/developing-custom-maven-plugins/)
+    * Book _"Maven: The Complete Reference"_ : [Writing Plugins](http://www.sonatype.com/books/mvnref-book/reference/writing-plugins.html)
+    * Book _"Better Builds with Maven"_ : [Mojo Parameter Expressions](http://www.maestrodev.com/better-builds-with-maven/resources-for-plugin-developers/mojo-parameter-expressions/)
 
 2. Maven & GitHub :
     * Maven + GitHub : [Maven Tips and Tricks: Using GitHub](http://www.sonatype.com/people/2009/09/maven-tips-and-tricks-using-github/)
