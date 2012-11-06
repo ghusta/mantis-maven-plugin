@@ -11,6 +11,7 @@ import javax.xml.rpc.ServiceException;
 
 import junit.framework.Assert;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import biz.futureware.mantis.rpc.soap.client.MantisConnectPortType;
@@ -19,6 +20,7 @@ public class FirstTest
 {
 
     @Test
+    @Ignore
     public void testCnx() throws ServiceException, RemoteException
     {
         String hostTest = "http://www.mantisbt.org/bugs";
