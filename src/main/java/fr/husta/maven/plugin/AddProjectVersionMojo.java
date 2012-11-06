@@ -44,18 +44,18 @@ public class AddProjectVersionMojo extends AbstractSecureMantisMojo
     /**
      * @parameter default-value="${project}"
      * @required
-     * @readonly	 
+     * @readonly
      */
     protected MavenProject project;
 
     /**
-     * @parameter expression="${projectName}" default-value="${project.artifactId}"
+     * @parameter expression="${mantis.projectName}" default-value="${project.artifactId}"
      * @required
      */
     protected String projectName;
 
     /**
-     * @parameter expression="${versionName}" default-value="${project.version}"
+     * @parameter expression="${mantis.versionName}" default-value="${project.version}"
      * @required
      */
     protected String versionName;
