@@ -9,13 +9,17 @@ public abstract class AbstractSecureMantisMojo extends AbstractMantisMojo
 {
 
     /**
-     * @parameter expression="${login}"
+     * Mantis server login.
+     * 
+     * @parameter expression="${mantis.login}"
      * @required
      */
     protected String login;
 
     /**
-     * @parameter expression="${password}"
+     * Mantis server password.
+     * 
+     * @parameter expression="${mantis.password}"
      * @required
      */
     protected String password;
