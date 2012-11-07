@@ -15,7 +15,7 @@ import biz.futureware.mantis.rpc.soap.client.MantisConnectPortType;
 import biz.futureware.mantis.rpc.soap.client.ProjectVersionData;
 import fr.husta.maven.plugin.util.MantisConnector;
 import fr.husta.maven.plugin.util.MantisUtils;
-import fr.husta.maven.plugin.util.ProjectVersionDataComparator;
+import fr.husta.maven.plugin.util.ProjectVersionDataComparatorByVersionName;
 
 /**
  * Displays the versions of a Mantis project.
@@ -58,7 +58,7 @@ public class DisplayProjectVersionsMojo extends AbstractSecureMantisMojo
             ProjectVersionData[] projectVersions = mantisConnector.getProjectVersions(login, password,
                     projectId);
             // sort versions
-            Arrays.sort(projectVersions, new ProjectVersionDataComparator());
+            Arrays.sort(projectVersions, new ProjectVersionDataComparatorByVersionName());
 
             // display to log
             getLog().info("Project : " + projectName + " (id = " + projectId + ")");
