@@ -96,7 +96,11 @@ public class DisplayProjectVersionsMojo extends AbstractSecureMantisMojo
         // header
         getLog().info(StringUtils.repeat("*", totalWidth));
         getLog().info(
+<<<<<<< HEAD
                 "*" + StringUtils.center("VERSION NAME", 30) + "*" + StringUtils.center("RELEASED", 10) + "*"
+=======
+                "*" + StringUtils.center("NAME", 30) + "*" + StringUtils.center("RELEASED", 10) + "*"
+>>>>>>> 1bb6118ef16d14d9bbd9c7e651277b37039a6967
                         + StringUtils.center("OBSOLETE", 10) + "*");
         getLog().info(StringUtils.repeat("*", totalWidth));
 
