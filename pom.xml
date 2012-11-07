@@ -98,6 +98,13 @@
 			<version>${maven.version}</version>
 		</dependency>
 
+		<!-- To be able to use Maven Plugin Java 5 Annotations, add this artifact to your project dependencies in pom.xml -->
+		 <dependency>
+			<groupId>org.apache.maven.plugin-tools</groupId>
+			<artifactId>maven-plugin-annotations</artifactId>
+			<version>3.1</version>
+		</dependency>
+	
 		<!-- Mantis WS Client -->
 		<dependency>
 			<groupId>biz.futureware.mantis</groupId>
