@@ -22,6 +22,7 @@ Help
     * Maven official site : [Maven - Guide to Developing Java Plugins](http://maven.apache.org/guides/plugin/guide-java-plugin-development.html)
     * Maven Plugin API : [The Descriptor and Annotations](http://maven.apache.org/developers/mojo-api-specification.html#The_Descriptor_and_Annotations)
     * Maven Plugin Plugin : [Configuring Generation of Help Mojo](http://maven.apache.org/plugin-tools/maven-plugin-plugin/examples/generate-help.html)
+    * Maven Plugin Tools : [Introduction](http://maven.apache.org/plugin-tools/) _(The Maven Plugin Tools contains the necessary tools to play with Maven Plugins.)_
     * Maven Plugin Prefix : [Introduction to Plugin Prefix Resolution](http://maven.apache.org/guides/introduction/introduction-to-plugin-prefix-mapping.html)
     * Book _"Better Builds with Maven"_ : [Developing Custom Maven Plugins](http://www.maestrodev.com/better-builds-with-maven/developing-custom-maven-plugins/)
     * Book _"Maven: The Complete Reference"_ : [Writing Plugins](http://www.sonatype.com/books/mvnref-book/reference/writing-plugins.html)
