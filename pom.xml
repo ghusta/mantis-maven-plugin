@@ -5,10 +5,10 @@
 	<groupId>fr.husta.maven.plugin</groupId>
 	<artifactId>mantis-maven-plugin</artifactId>
 	<packaging>maven-plugin</packaging>
-	<version>0.1-SNAPSHOT</version>
+	<version>0.2-SNAPSHOT</version>
 
-	<name>mantis-maven-plugin Maven Mojo</name>
-	<description></description>
+	<name>mantis-maven-plugin : Maven plugin for Mantis</name>
+	<description>A Maven plugin for Mantis integration</description>
 
 	<prerequisites>
 		<maven>${maven.version}</maven>
@@ -46,7 +46,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.5.1</version>
+				<version>3.0</version>
 				<configuration>
 					<!-- http://maven.apache.org/plugins/maven-compiler-plugin/ -->
 					<source>1.5</source>
@@ -60,8 +60,17 @@
 				<version>3.2</version>
 				<configuration>
 					<goalPrefix>mantis</goalPrefix>
+
+					<!-- see http://jira.codehaus.org/browse/MNG-5346 -->
+					<skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
 				</configuration>
 				<executions>
+					<execution>
+						<id>mojo-descriptor</id>
+						<goals>
+							<goal>descriptor</goal>
+						</goals>
+					</execution>
 					<execution>
 						<id>generated-helpmojo</id>
 						<goals>

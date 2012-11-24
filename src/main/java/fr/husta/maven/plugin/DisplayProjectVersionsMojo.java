@@ -8,6 +8,9 @@ import javax.xml.rpc.ServiceException;
 import org.apache.commons.lang.StringUtils;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.Component;
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 
 import biz.futureware.mantis.rpc.soap.client.MantisConnectPortType;
@@ -17,25 +20,14 @@ import fr.husta.maven.plugin.util.MantisUtils;
 
 /**
  * Displays the versions of a Mantis project.
- * 
- * @goal display-project-versions
- * @requiresProject true
- * 
  */
+@Mojo(name = "display-project-versions", requiresProject = true)
 public class DisplayProjectVersionsMojo extends AbstractSecureMantisMojo {
 
-	/**
-	 * @parameter default-value="${project}"
-	 * @required
-	 * @readonly
-	 */
+	@Component
 	protected MavenProject project;
 
-	/**
-	 * @parameter expression="${mantis.projectName}"
-	 *            default-value="${project.artifactId}"
-	 * @required
-	 */
+	@Parameter(property = "mantis.projectName", defaultValue = "${project.artifactId}", required = true)
 	protected String projectName;
 
 	public void execute() throws MojoExecutionException, MojoFailureException {
@@ -55,7 +47,7 @@ public class DisplayProjectVersionsMojo extends AbstractSecureMantisMojo {
 			ProjectVersionData[] projectVersions = mantisConnector
 					.getProjectVersions(login, password, projectId);
 			// TODO: sort versions
-			
+
 			// display to log
 			getLog().info(
 					"Project : " + projectName + " (id = " + projectId + ")");
@@ -104,4 +96,5 @@ public class DisplayProjectVersionsMojo extends AbstractSecureMantisMojo {
 								projectVersionData.getObsolete() ? "X" : " ",
 								20) + "*");
 	}
+
 }

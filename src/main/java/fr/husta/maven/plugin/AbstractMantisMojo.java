@@ -1,6 +1,7 @@
 package fr.husta.maven.plugin;
 
 import org.apache.maven.plugin.AbstractMojo;
+import org.apache.maven.plugins.annotations.Parameter;
 
 import fr.husta.maven.plugin.util.MantisUtils;
 
@@ -12,12 +13,10 @@ import fr.husta.maven.plugin.util.MantisUtils;
 public abstract class AbstractMantisMojo extends AbstractMojo {
 
 	/**
-	 * Complete Mantis server web URI including protocol and port number. 
+	 * Complete Mantis server web URI including protocol and port number.
 	 * Example: http://localhost:80/mantis/
-	 * 
-	 * @parameter expression="${mantis.host.url}" default-value="http://127.0.0.1:80/mantis/"
-	 * @required
 	 */
+	@Parameter(property = "mantis.host.url", required = true)
 	protected String mantisHostUrl;
 
 	/**
