@@ -8,7 +8,7 @@
 	<version>0.1-SNAPSHOT</version>
 
 	<name>mantis-maven-plugin Maven Mojo</name>
-	<description></description>
+	<description>A Maven plugin for Mantis integration</description>
 
 	<prerequisites>
 		<maven>${maven.version}</maven>
