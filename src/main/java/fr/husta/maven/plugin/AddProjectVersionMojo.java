@@ -23,6 +23,9 @@ import javax.xml.rpc.ServiceException;
 
 import org.apache.maven.model.IssueManagement;
 import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.plugins.annotations.Component;
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 
 import biz.futureware.mantis.rpc.soap.client.MantisConnectPortType;
@@ -33,32 +36,17 @@ import fr.husta.maven.plugin.util.ReleaseUtils;
 
 /**
  * Adds a version to a project.
- * 
- * @goal add-project-version
- * @requiresProject true
- * 
  */
+@Mojo(name = "add-project-version", requiresProject = true)
 public class AddProjectVersionMojo extends AbstractSecureMantisMojo {
 
-	/**
-	 * @parameter default-value="${project}"
-	 * @required
-	 * @readonly
-	 */
+	@Component
 	protected MavenProject project;
 
-	/**
-	 * @parameter expression="${mantis.projectName}"
-	 *            default-value="${project.artifactId}"
-	 * @required
-	 */
+	@Parameter(property = "mantis.projectName", defaultValue = "${project.artifactId}", required = true)
 	protected String projectName;
 
-	/**
-	 * @parameter expression="${mantis.versionName}"
-	 *            default-value="${project.version}"
-	 * @required
-	 */
+	@Parameter(property = "mantis.versionName", defaultValue = "${project.version}", required = true)
 	protected String versionName;
 
 	protected IssueManagement issueManagement;

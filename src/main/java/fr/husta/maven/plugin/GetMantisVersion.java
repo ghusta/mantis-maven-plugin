@@ -6,17 +6,15 @@ import javax.xml.rpc.ServiceException;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.Mojo;
 
 import biz.futureware.mantis.rpc.soap.client.MantisConnectPortType;
 import fr.husta.maven.plugin.util.MantisUtils;
 
 /**
  * Displays version of Mantis server.
- * 
- * @goal display-version
- * @requiresProject false
- *
  */
+@Mojo(name = "display-version", requiresProject = false)
 public class GetMantisVersion extends AbstractMantisMojo
 {
 

@@ -1,27 +1,24 @@
 package fr.husta.maven.plugin;
 
+import org.apache.maven.plugins.annotations.Parameter;
+
 /**
  * Abstract class for Mantis Mojos - Secured with login/password.
  * 
  * @author Guillaume
  */
-public abstract class AbstractSecureMantisMojo extends AbstractMantisMojo
-{
+public abstract class AbstractSecureMantisMojo extends AbstractMantisMojo {
 
-    /**
-     * Mantis server login.
-     * 
-     * @parameter expression="${mantis.login}"
-     * @required
-     */
-    protected String login;
+	/**
+	 * Mantis server login.
+	 */
+	@Parameter(property = "mantis.login", required = true)
+	protected String login;
 
-    /**
-     * Mantis server password.
-     * 
-     * @parameter expression="${mantis.password}"
-     * @required
-     */
-    protected String password;
+	/**
+	 * Mantis server password.
+	 */
+	@Parameter(property = "mantis.password", required = true)
+	protected String password;
 
 }
