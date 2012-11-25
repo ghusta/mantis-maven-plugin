@@ -25,6 +25,8 @@
 		<url>https://github.com/ghusta/mantis-maven-plugin</url>
 	</scm>
 
+	<inceptionYear>2012</inceptionYear>
+
 	<developers>
 		<developer>
 			<id>ghusta</id>
