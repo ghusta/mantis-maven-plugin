@@ -22,79 +22,78 @@ import fr.husta.maven.plugin.util.MantisUtils;
  * Displays the versions of a Mantis project.
  */
 @Mojo(name = "display-project-versions", requiresProject = true)
-public class DisplayProjectVersionsMojo extends AbstractSecureMantisMojo {
+public class DisplayProjectVersionsMojo extends AbstractSecureMantisMojo
+{
 
-	@Component
-	protected MavenProject project;
+    @Component
+    protected MavenProject project;
 
-	@Parameter(property = "mantis.projectName", defaultValue = "${project.artifactId}", required = true)
-	protected String projectName;
+    @Parameter(property = "mantis.projectName", defaultValue = "${project.artifactId}", required = true)
+    protected String projectName;
 
-	public void execute() throws MojoExecutionException, MojoFailureException {
+    public void execute() throws MojoExecutionException, MojoFailureException
+    {
 
-		try {
-			// connection to Mantis SOAP API
-			MantisConnectPortType portType = MantisUtils
-					.createConnector(getMantisSoapApiUrl());
-			MantisConnector mantisConnector = new MantisConnector(portType);
+        try
+        {
+            // connection to Mantis SOAP API
+            MantisConnectPortType portType = MantisUtils.createConnector(getMantisSoapApiUrl());
+            MantisConnector mantisConnector = new MantisConnector(portType);
 
-			getLog().debug("projectName = '" + projectName + "'");
+            getLog().debug("projectName = '" + projectName + "'");
 
-			// find ProjectId from Name
-			BigInteger projectId = mantisConnector.getProjectIdByName(login,
-					password, projectName);
-			// call to web service method
-			ProjectVersionData[] projectVersions = mantisConnector
-					.getProjectVersions(login, password, projectId);
-			// TODO: sort versions
+            // find ProjectId from Name
+            BigInteger projectId = mantisConnector.getProjectIdByName(login, password, projectName);
+            // call to web service method
+            ProjectVersionData[] projectVersions = mantisConnector.getProjectVersions(login, password,
+                    projectId);
+            // TODO: sort versions
 
-			// display to log
-			getLog().info(
-					"Project : " + projectName + " (id = " + projectId + ")");
-			displayVersionList(projectVersions);
+            // display to log
+            getLog().info("Project : " + projectName + " (id = " + projectId + ")");
+            displayVersionList(projectVersions);
 
-		} catch (ServiceException e) {
-			// getLog().error(e.getMessage());
-			throw new MojoExecutionException(e.getMessage(), e);
-		} catch (RemoteException e) {
-			// getLog().error(e.getMessage());
-			throw new MojoExecutionException(e.getMessage(), e);
-		}
+        }
+        catch (ServiceException e)
+        {
+            // getLog().error(e.getMessage());
+            throw new MojoExecutionException(e.getMessage(), e);
+        }
+        catch (RemoteException e)
+        {
+            // getLog().error(e.getMessage());
+            throw new MojoExecutionException(e.getMessage(), e);
+        }
 
-	}
+    }
 
-	/**
-	 * Display versions to log.
-	 * 
-	 * @param projectVersions
-	 */
-	private void displayVersionList(ProjectVersionData[] projectVersions) {
-		getLog().info("Versions : ");
-		// header
-		getLog().info(StringUtils.repeat("*", 60));
-		getLog().info(
-				"*" + StringUtils.center("NAME", 30) + "*"
-						+ StringUtils.center("RELEASED", 20) + "*"
-						+ StringUtils.center("OBSOLETE", 20) + "*");
-		for (int i = 0; i < projectVersions.length; i++) {
-			displayVersion(projectVersions[i]);
-		}
-		// footer
-		getLog().info(StringUtils.repeat("*", 60));
-	}
+    /**
+     * Display versions to log.
+     * 
+     * @param projectVersions
+     */
+    private void displayVersionList(ProjectVersionData[] projectVersions)
+    {
+        getLog().info("Versions : ");
+        // header
+        getLog().info(StringUtils.repeat("*", 60));
+        getLog().info(
+                "*" + StringUtils.center("NAME", 30) + "*" + StringUtils.center("RELEASED", 20) + "*"
+                        + StringUtils.center("OBSOLETE", 20) + "*");
+        for (int i = 0; i < projectVersions.length; i++)
+        {
+            displayVersion(projectVersions[i]);
+        }
+        // footer
+        getLog().info(StringUtils.repeat("*", 60));
+    }
 
-	private void displayVersion(ProjectVersionData projectVersionData) {
-		getLog().info(
-				"*"
-						+ StringUtils.left(projectVersionData.getName(), 30)
-						+ "*"
-						+ StringUtils.center(
-								projectVersionData.getReleased() ? "X" : " ",
-								20)
-						+ "*"
-						+ StringUtils.center(
-								projectVersionData.getObsolete() ? "X" : " ",
-								20) + "*");
-	}
+    private void displayVersion(ProjectVersionData projectVersionData)
+    {
+        getLog().info(
+                "*" + StringUtils.left(projectVersionData.getName(), 30) + "*"
+                        + StringUtils.center(projectVersionData.getReleased() ? "X" : " ", 20) + "*"
+                        + StringUtils.center(projectVersionData.getObsolete() ? "X" : " ", 20) + "*");
+    }
 
 }

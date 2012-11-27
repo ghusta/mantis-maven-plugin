@@ -7,18 +7,19 @@ import org.apache.maven.plugins.annotations.Parameter;
  * 
  * @author Guillaume
  */
-public abstract class AbstractSecureMantisMojo extends AbstractMantisMojo {
+public abstract class AbstractSecureMantisMojo extends AbstractMantisMojo
+{
 
-	/**
-	 * Mantis server login.
-	 */
-	@Parameter(property = "mantis.login", required = true)
-	protected String login;
+    /**
+     * Mantis server login.
+     */
+    @Parameter(property = "mantis.login", required = true)
+    protected String login;
 
-	/**
-	 * Mantis server password.
-	 */
-	@Parameter(property = "mantis.password", required = true)
-	protected String password;
+    /**
+     * Mantis server password.
+     */
+    @Parameter(property = "mantis.password", required = true)
+    protected String password;
 
 }
