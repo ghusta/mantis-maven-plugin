@@ -12,7 +12,7 @@ Goals
 -----
 1. **mantis:add-project-version** - Create a project's version - Method _mc_project_version_add_
 2. **mantis:display-project-versions** - Displays the versions of a project. - Method _mc_project_get_versions_
-3. **mantis:display-version** - Displays version of Mantis server - Method _mc_version_
+3. **mantis:display-version** - Displays the version of Mantis server - Method _mc_version_
 
 
 Help
