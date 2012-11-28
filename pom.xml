@@ -45,6 +45,8 @@
 
 		<plugins>
 
+			<!-- *** BUILD TOOLS *** -->
+			<!-- PLUGIN COMPILER -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -56,6 +58,7 @@
 				</configuration>
 			</plugin>
 
+			<!-- PLUGIN PLUGIN -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-plugin-plugin</artifactId>
@@ -82,17 +85,35 @@
 				</executions>
 			</plugin>
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-changes-plugin</artifactId>
-				<version>2.8</version>
-			</plugin>
-
+			<!-- PLUGIN VERSIONS -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>versions-maven-plugin</artifactId>
 				<version>1.3.1</version>
 			</plugin>
+			
+			<!-- *** REPORTING *** -->
+			<!-- PLUGIN SITE -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.2</version>
+			</plugin>
+
+			<!-- PLUGIN PROJECT INFO REPORTS -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.6</version>
+			</plugin>
+
+			<!-- PLUGIN CHANGES -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-changes-plugin</artifactId>
+				<version>2.8</version>
+			</plugin>
+			
 		</plugins>
 	</build>
 
