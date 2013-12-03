@@ -4,8 +4,8 @@ mantis-maven-plugin
 General information
 -------------------
 
-A Maven plugin for Mantis integration.  
-Based on the [Mantis SOAP API](http://www.mantisbt.org/wiki/doku.php/mantisbt:faq#does_mantisbt_provide_a_webservice_interface) (Web Service).  
+A Maven plugin for Mantis integration.
+Based on the [Mantis SOAP API](http://www.mantisbt.org/wiki/doku.php/mantisbt:faq#does_mantisbt_provide_a_webservice_interface) (Web Service).
 Live test of the web service on the MantisBT site : [Test it](http://www.mantisbt.org/bugs/api/soap/mantisconnect.php) ([WSDL](http://www.mantisbt.org/bugs/api/soap/mantisconnect.php?wsdl)).
 
 Goals
@@ -13,6 +13,27 @@ Goals
 1. **mantis:add-project-version** - Create a project's version - Method _mc_project_version_add_
 2. **mantis:display-project-versions** - Displays the versions of a project. - Method _mc_project_get_versions_
 3. **mantis:display-version** - Displays the version of Mantis server - Method _mc_version_
+4. **mantis:release-project-version** - Release a current version and create a new snapshot version as development version (e.g. pre-goal when releasing with Jenkins).
+    * Add Plugin to pom.xml:
+   			<plugin>
+			  <groupId>fr.husta.maven.plugin</groupId>
+			  <artifactId>mantis-maven-plugin</artifactId>
+			  <version>0.2-SNAPSHOT</version>
+				<configuration>
+					<mantisHostUrl>http://xxxxx/api/soap/mantisconnect.php</mantisHostUrl>
+					<login>....</login>
+					<password>....</password>
+					<projectName>....</projectName>
+				</configuration>
+			</plugin>
+
+    * Configure Jenkins with pre-goal:
+		Conditional: $IS_M2RELEASEBUILD
+		   Invoke top level Maven target
+		     Goals: -N fr.husta.maven.plugin:mantis-maven-plugin:release-project-version
+			 Properties. 
+			  	mantis.releaseVersion=$MVN_RELEASE_VERSION
+				mantis.developmentVersion=$MVN_DEV_VERSION
 
 
 Help

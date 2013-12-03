@@ -2,6 +2,9 @@ package fr.husta.maven.plugin.util;
 
 import java.math.BigInteger;
 import java.rmi.RemoteException;
+import java.util.Calendar;
+
+import org.apache.maven.plugin.logging.Log;
 
 import biz.futureware.mantis.rpc.soap.client.MantisConnectPortType;
 import biz.futureware.mantis.rpc.soap.client.ProjectVersionData;
@@ -91,6 +94,40 @@ public class MantisConnector {
 				projectId);
 
 		return projectVersionDatas;
+	}
+
+	/**
+	 * renameVersion from aCurrentSnapshot to aReleaseVersion and mark it "released".
+	 * @param aLog
+	 *
+	 * @param aLogin
+	 * @param aPassword
+	 * @param aProjectId
+	 * @param aCurrentSnapshot
+	 * @param aReleaseVersion void
+	 * @throws RemoteException
+	 */
+	public void renameVersion(Log aLog, String aLogin, String aPassword, BigInteger aProjectId,
+			String aCurrentSnapshot, String aReleaseVersion) throws RemoteException {
+		ProjectVersionData[] tempProjectVersions = getProjectVersions(aLogin, aPassword, aProjectId);
+		ProjectVersionData tempCurrentVersion = null;
+		for (ProjectVersionData tempProjectVersionData : tempProjectVersions) {
+			if (tempProjectVersionData.getName().equals(aCurrentSnapshot)) {
+				tempCurrentVersion = tempProjectVersionData;
+				break;
+			}
+		}
+		if (tempCurrentVersion == null) {
+			throw new IllegalArgumentException("Did not find Version " + aCurrentSnapshot + " in ProjectId="
+					+ aProjectId);
+		}
+		BigInteger tempVersionId = tempCurrentVersion.getId();
+		aLog.info("Found " + tempCurrentVersion.getName() + " ID=" + tempVersionId);
+		tempCurrentVersion.setName(aReleaseVersion);
+		tempCurrentVersion.setReleased(true);
+		Calendar tempToday = Calendar.getInstance();
+		tempCurrentVersion.setDate_order(tempToday);
+		mantisConnectPortType.mc_project_version_update(aLogin, aPassword, tempVersionId, tempCurrentVersion);
 	}
 
 }
