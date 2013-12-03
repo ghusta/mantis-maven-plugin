@@ -16,3 +16,4 @@ local.properties
 .settings/
 .loadpath
 /deploy-local.bat
+/release.bat
