@@ -4,7 +4,7 @@
 	<groupId>fr.husta.maven.plugin</groupId>
 	<artifactId>mantis-maven-plugin</artifactId>
 	<packaging>maven-plugin</packaging>
-	<version>0.2</version>
+	<version>0.3</version>
 
 	<name>mantis-maven-plugin : Maven plugin for Mantis</name>
 	<description>A Maven plugin for Mantis integration</description>
@@ -90,7 +90,7 @@
 				<artifactId>versions-maven-plugin</artifactId>
 				<version>2.0</version>
 			</plugin>
-			
+
 			<!-- *** REPORTING *** -->
 			<!-- PLUGIN SITE -->
 			<plugin>
@@ -112,7 +112,7 @@
 				<artifactId>maven-changes-plugin</artifactId>
 				<version>2.9</version>
 			</plugin>
-			
+
 		</plugins>
 	</build>
 
@@ -129,13 +129,13 @@
 			<version>${maven.version}</version>
 		</dependency>
 
-		<!-- To be able to use Maven Plugin Java 5 Annotations, add this artifact 
+		<!-- To be able to use Maven Plugin Java 5 Annotations, add this artifact
 			to your project dependencies in pom.xml -->
 		<dependency>
 			<groupId>org.apache.maven.plugin-tools</groupId>
 			<artifactId>maven-plugin-annotations</artifactId>
 			<version>3.2</version>
-			<!-- annotations are not needed for plugin execution so you can remove 
+			<!-- annotations are not needed for plugin execution so you can remove
 				this dependency for execution with using provided scope -->
 			<scope>provided</scope>
 		</dependency>
@@ -152,7 +152,7 @@
 			<artifactId>mantis-axis-soap-client</artifactId>
 			<version>1.2.9</version>
 		</dependency>
-		<!-- <dependency> <groupId>com.googlecode</groupId> <artifactId>mantis-java-api</artifactId> 
+		<!-- <dependency> <groupId>com.googlecode</groupId> <artifactId>mantis-java-api</artifactId>
 			<version>0.0.3</version> </dependency> -->
 
 		<dependency>
