@@ -126,6 +126,10 @@ public class MantisConnector {
 		tempCurrentVersion.setName(aReleaseVersion);
 		tempCurrentVersion.setReleased(true);
 		Calendar tempToday = Calendar.getInstance();
+		// Go back one minute to have the later added version after this one.
+		tempToday.set(Calendar.MILLISECOND, 0);
+		tempToday.set(Calendar.SECOND, 0);
+		tempToday.add(Calendar.MINUTE, -1);
 		tempCurrentVersion.setDate_order(tempToday);
 		mantisConnectPortType.mc_project_version_update(aLogin, aPassword, tempVersionId, tempCurrentVersion);
 	}
