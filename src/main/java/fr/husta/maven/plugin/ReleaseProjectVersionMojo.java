@@ -90,10 +90,13 @@ public class ReleaseProjectVersionMojo extends AbstractSecureMantisMojo {
 			tempLog.info("Version '" + developmentVersion + "' created in Mantis, releaseFlag=" + false);
 
 		} catch (ServiceException e) {
-			// getLog().error(e.getMessage());
+			tempLog.error(e.getMessage());
+			throw new MojoExecutionException(e.getMessage(), e);
+		} catch (RuntimeException e) {
+			tempLog.error(e.getMessage());
 			throw new MojoExecutionException(e.getMessage(), e);
 		} catch (RemoteException e) {
-			// getLog().error(e.getMessage());
+			tempLog.error(e.getMessage());
 			throw new MojoExecutionException(e.getMessage(), e);
 		}
 
