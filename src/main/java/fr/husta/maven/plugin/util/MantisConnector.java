@@ -57,26 +57,47 @@ public class MantisConnector {
 	 * Simple version of version creation. Fault if project doesn't exist or
 	 * version already exists.
 	 *
-	 * @param username
-	 * @param password
-	 * @param projectId
-	 * @param versionName
+	 * @param aLogin
+	 * @param aPassword
+	 * @param aProjectId
+	 * @param aVersionName
 	 * @throws RemoteException
 	 */
-	public void addProjectVersion(String username, String password, BigInteger projectId, String versionName,
+	public void addProjectVersion(String aLogin, String aPassword, BigInteger aProjectId, String aVersionName,
 			boolean aReleasedFlag) throws RemoteException {
-		ProjectVersionData versionData = new ProjectVersionData();
-		versionData.setProject_id(projectId);
-		versionData.setName(versionName);
-		versionData.setReleased(aReleasedFlag);
-		versionData.setObsolete(Boolean.FALSE);
-
-		// bug Mantis ?
-		if (versionData.getDescription() == null) {
-			versionData.setDescription("");
+		ProjectVersionData[] tempProjectVersions = getProjectVersions(aLogin, aPassword, aProjectId);
+		ProjectVersionData tempCurrentVersion = null;
+		for (ProjectVersionData tempProjectVersionData : tempProjectVersions) {
+			if (tempProjectVersionData.getName().equals(aVersionName)) {
+				tempCurrentVersion = tempProjectVersionData;
+				break;
+			}
 		}
 
-		mantisConnectPortType.mc_project_version_add(username, password, versionData);
+		boolean tempAddVersion;
+		if (tempCurrentVersion != null) {
+			// Version already there. Just update
+			tempAddVersion = false;
+		} else {
+			tempAddVersion = true;
+			tempCurrentVersion = new ProjectVersionData();
+			tempCurrentVersion.setProject_id(aProjectId);
+		}
+		tempCurrentVersion.setName(aVersionName);
+		tempCurrentVersion.setReleased(aReleasedFlag);
+		tempCurrentVersion.setObsolete(Boolean.FALSE);
+
+		// bug Mantis ?
+		if (tempCurrentVersion.getDescription() == null) {
+			tempCurrentVersion.setDescription("");
+		}
+
+		if (tempAddVersion) {
+			mantisConnectPortType.mc_project_version_add(aLogin, aPassword, tempCurrentVersion);
+		} else {
+			mantisConnectPortType.mc_project_version_update(aLogin, aPassword, tempCurrentVersion.getId(),
+					tempCurrentVersion);
+		}
 	}
 
 	/**
