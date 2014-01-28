@@ -139,8 +139,9 @@ public class MantisConnector {
 			}
 		}
 		if (tempCurrentVersion == null) {
-			throw new IllegalArgumentException("Did not find Version " + aCurrentSnapshot + " in ProjectId="
-					+ aProjectId);
+			aLog.warn("Did not find Version " + aCurrentSnapshot + " in ProjectId=" + aProjectId
+					+ " ==> can not rename.");
+			return;
 		}
 		BigInteger tempVersionId = tempCurrentVersion.getId();
 		aLog.info("Found " + tempCurrentVersion.getName() + " ID=" + tempVersionId);
