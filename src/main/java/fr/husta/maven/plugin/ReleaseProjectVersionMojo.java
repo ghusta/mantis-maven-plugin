@@ -54,6 +54,9 @@ public class ReleaseProjectVersionMojo extends AbstractSecureMantisMojo {
 	@Parameter(property = "mantis.developmentVersion", required = true)
 	protected String developmentVersion;
 
+	@Parameter(property = "mantis.versionPrefix", required = false)
+	protected String versionPrefix;
+
 	protected IssueManagement issueManagement;
 
 	public void execute() throws MojoExecutionException {
@@ -81,13 +84,25 @@ public class ReleaseProjectVersionMojo extends AbstractSecureMantisMojo {
 
 			tempLog.info("Project " + projectName + " has ID=" + projectId);
 
-			tempLog.info("Rename Version '" + currentSnapshot + "' to " + releaseVersion);
-			mantisConnector.renameVersion(tempLog, login, password, projectId, currentSnapshot, releaseVersion);
-			tempLog.info("Renamed Version '" + currentSnapshot + "' to " + releaseVersion);
+			String tempCurrentSnapshot = currentSnapshot;
+			if (versionPrefix != null) {
+				tempCurrentSnapshot = versionPrefix + "-" + tempCurrentSnapshot;
+			}
+			String tempReleaseVersion = releaseVersion;
+			if (versionPrefix != null) {
+				tempReleaseVersion = versionPrefix + "-" + tempReleaseVersion;
+			}
+			tempLog.info("Rename Version '" + tempCurrentSnapshot + "' to " + tempReleaseVersion);
+			mantisConnector.renameVersion(tempLog, login, password, projectId, tempCurrentSnapshot, tempReleaseVersion);
+			tempLog.info("Renamed Version '" + tempCurrentSnapshot + "' to " + tempReleaseVersion);
 			// call to web service method
-			tempLog.info("Create Version '" + developmentVersion + "' in Mantis, releaseFlag=" + false);
-			mantisConnector.addProjectVersion(login, password, projectId, developmentVersion, false);
-			tempLog.info("Version '" + developmentVersion + "' created in Mantis, releaseFlag=" + false);
+			String tempDevelopmentVersion = developmentVersion;
+			if (versionPrefix != null) {
+				tempDevelopmentVersion = versionPrefix + "-" + tempDevelopmentVersion;
+			}
+			tempLog.info("Create Version '" + tempDevelopmentVersion + "' in Mantis, releaseFlag=" + false);
+			mantisConnector.addProjectVersion(login, password, projectId, tempDevelopmentVersion, false);
+			tempLog.info("Version '" + tempDevelopmentVersion + "' created in Mantis, releaseFlag=" + false);
 
 		} catch (ServiceException e) {
 			tempLog.error(e.getMessage());
