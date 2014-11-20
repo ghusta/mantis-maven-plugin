@@ -19,9 +19,9 @@
 	</issueManagement>
 
 	<scm>
-		<connection>scm:git:git://github.com/ghusta/mantis-maven-plugin.git</connection>
-		<developerConnection>scm:git:git@github.com:ghusta/mantis-maven-plugin.git</developerConnection>
-		<url>https://github.com/ghusta/mantis-maven-plugin</url>
+		<connection>scm:git:git://github.com/rscadrde/mantis-maven-plugin.git</connection>
+		<developerConnection>scm:git:git@github.com:rscadrde/mantis-maven-plugin.git</developerConnection>
+		<url>https://github.com/rscadrde/mantis-maven-plugin.git</url>
 	</scm>
 
 	<inceptionYear>2012</inceptionYear>
