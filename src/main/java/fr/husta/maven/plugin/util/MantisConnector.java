@@ -128,8 +128,8 @@ public class MantisConnector {
 	 * @param aReleaseVersion void
 	 * @throws RemoteException
 	 */
-	public void renameVersion(Log aLog, String aLogin, String aPassword, BigInteger aProjectId,
-			String aCurrentSnapshot, String aReleaseVersion) throws RemoteException {
+	public void renameVersion(Log aLog, String aLogin, String aPassword, BigInteger aProjectId, String aCurrentSnapshot,
+			String aReleaseVersion) throws RemoteException {
 		ProjectVersionData[] tempProjectVersions = getProjectVersions(aLogin, aPassword, aProjectId);
 		ProjectVersionData tempCurrentVersion = null;
 		for (ProjectVersionData tempProjectVersionData : tempProjectVersions) {
@@ -139,8 +139,9 @@ public class MantisConnector {
 			}
 		}
 		if (tempCurrentVersion == null) {
-			aLog.warn("Did not find Version " + aCurrentSnapshot + " in ProjectId=" + aProjectId
-					+ " ==> can not rename.");
+			aLog.warn("Did not find Version " + aCurrentSnapshot + " in ProjectId=" + aProjectId + " ==> create "
+					+ aReleaseVersion);
+			addProjectVersion(aLogin, aPassword, aProjectId, aReleaseVersion, true);
 			return;
 		}
 		BigInteger tempVersionId = tempCurrentVersion.getId();
