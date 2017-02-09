@@ -59,6 +59,7 @@ public class ReleaseProjectVersionMojo extends AbstractSecureMantisMojo {
 
 	protected IssueManagement issueManagement;
 
+	@Override
 	public void execute() throws MojoExecutionException {
 		issueManagement = project.getIssueManagement();
 		Log tempLog = getLog();

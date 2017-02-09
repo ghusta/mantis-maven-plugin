@@ -12,7 +12,8 @@ import biz.futureware.mantis.rpc.soap.client.ProjectVersionData;
 public class ProjectVersionDataComparatorByVersionName implements Comparator<ProjectVersionData>
 {
 
-    public int compare(ProjectVersionData o1, ProjectVersionData o2)
+    @Override
+	public int compare(ProjectVersionData o1, ProjectVersionData o2)
     {
         // sort #1
         // first by released

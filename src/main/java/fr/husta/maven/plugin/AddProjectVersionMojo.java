@@ -59,6 +59,7 @@ public class AddProjectVersionMojo extends AbstractSecureMantisMojo {
 
 	protected IssueManagement issueManagement;
 
+	@Override
 	public void execute() throws MojoExecutionException {
 		issueManagement = project.getIssueManagement();
 		if (issueManagement != null) {

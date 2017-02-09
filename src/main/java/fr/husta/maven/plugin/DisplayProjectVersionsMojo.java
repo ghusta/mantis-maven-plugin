@@ -31,7 +31,8 @@ public class DisplayProjectVersionsMojo extends AbstractSecureMantisMojo
     @Parameter(property = "mantis.projectName", defaultValue = "${project.artifactId}", required = true)
     protected String projectName;
 
-    public void execute() throws MojoExecutionException, MojoFailureException
+    @Override
+	public void execute() throws MojoExecutionException, MojoFailureException
     {
 
         try
