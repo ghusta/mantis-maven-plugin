@@ -23,7 +23,6 @@ import javax.xml.rpc.ServiceException;
 
 import org.apache.maven.model.IssueManagement;
 import org.apache.maven.plugin.MojoExecutionException;
-import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
@@ -62,7 +61,7 @@ public class AddProjectVersionMojo extends AbstractSecureMantisMojo
 
             final String ISSUE_MNGT_MANTIS = "Mantis";
             if (issueManagement.getSystem() != null
-                    && ISSUE_MNGT_MANTIS.equals(issueManagement.getSystem()) == false)
+                    && !ISSUE_MNGT_MANTIS.equals(issueManagement.getSystem()))
             {
                 getLog().warn("IssueManagement -> system should be set to '" + ISSUE_MNGT_MANTIS + "'.");
             }
@@ -85,16 +84,9 @@ public class AddProjectVersionMojo extends AbstractSecureMantisMojo
             getLog().info("Version '" + releaseVersion + "' created in Mantis.");
 
         }
-        catch (ServiceException e)
+        catch (ServiceException | RemoteException e)
         {
-            // getLog().error(e.getMessage());
             throw new MojoExecutionException(e.getMessage(), e);
         }
-        catch (RemoteException e)
-        {
-            // getLog().error(e.getMessage());
-            throw new MojoExecutionException(e.getMessage(), e);
-        }
-
     }
 }

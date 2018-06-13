@@ -8,7 +8,6 @@ import javax.xml.rpc.ServiceException;
 import org.apache.commons.lang.StringUtils;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
@@ -54,14 +53,8 @@ public class DisplayProjectVersionsMojo extends AbstractSecureMantisMojo
             displayVersionList(projectVersions);
 
         }
-        catch (ServiceException e)
+        catch (ServiceException | RemoteException e)
         {
-            // getLog().error(e.getMessage());
-            throw new MojoExecutionException(e.getMessage(), e);
-        }
-        catch (RemoteException e)
-        {
-            // getLog().error(e.getMessage());
             throw new MojoExecutionException(e.getMessage(), e);
         }
 

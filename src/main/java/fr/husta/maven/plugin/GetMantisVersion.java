@@ -26,16 +26,9 @@ public class GetMantisVersion extends AbstractMantisMojo
 
             String version = portType.mc_version();
             getLog().info("Mantis Version : " + version);
-
         }
-        catch (ServiceException e)
+        catch (ServiceException | RemoteException e)
         {
-            // getLog().error(e.getMessage());
-            throw new MojoExecutionException(e.getMessage(), e);
-        }
-        catch (RemoteException e)
-        {
-            // getLog().error(e.getMessage());
             throw new MojoExecutionException(e.getMessage(), e);
         }
     }
