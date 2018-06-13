@@ -8,8 +8,7 @@ import java.rmi.RemoteException;
 
 import javax.xml.rpc.ServiceException;
 
-import junit.framework.Assert;
-
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 

@@ -41,7 +41,7 @@ import fr.husta.maven.plugin.util.ReleaseUtils;
 public class AddProjectVersionMojo extends AbstractSecureMantisMojo
 {
 
-    @Component
+    @Parameter(defaultValue = "${project}", readonly = true )
     protected MavenProject project;
 
     @Parameter(property = "mantis.projectName", defaultValue = "${project.artifactId}", required = true)
