@@ -1,6 +1,8 @@
 mantis-maven-plugin
 ===================
 
+[![Build Status](https://travis-ci.org/ghusta/mantis-maven-plugin.svg?branch=master)](https://travis-ci.org/ghusta/mantis-maven-plugin)
+
 General information
 -------------------
 
