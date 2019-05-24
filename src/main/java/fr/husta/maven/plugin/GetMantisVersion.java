@@ -18,7 +18,8 @@ import fr.husta.maven.plugin.util.MantisUtils;
 public class GetMantisVersion extends AbstractMantisMojo
 {
 
-    public void execute() throws MojoExecutionException, MojoFailureException
+    @Override
+	public void execute() throws MojoExecutionException, MojoFailureException
     {
         try
         {
