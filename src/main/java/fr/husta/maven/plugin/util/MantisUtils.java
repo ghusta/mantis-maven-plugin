@@ -11,26 +11,28 @@ import biz.futureware.mantis.rpc.soap.client.MantisConnectPortType;
  * @author Guillaume
  *
  */
-public class MantisUtils {
+public class MantisUtils
+{
 
     public static final String SOAP_API_URL_SUFFIX = "/api/soap/mantisconnect.php";
 
-	private MantisUtils() {
-	}
+    private MantisUtils()
+    {
+    }
 
-	/**
-	 * Initialize a web service connection.
-	 * 
-	 * @param url Endpoint URL
-	 * @return
-	 * @throws ServiceException
-	 */
-	public static MantisConnectPortType createConnector(String url)
-			throws ServiceException {
-		MantisConnectLocator locator = new MantisConnectLocator();
-		locator.setMantisConnectPortEndpointAddress(url);
+    /**
+     * Initialize a web service connection.
+     * 
+     * @param url Endpoint URL
+     * @return
+     * @throws ServiceException
+     */
+    public static MantisConnectPortType createConnector(String url) throws ServiceException
+    {
+        MantisConnectLocator locator = new MantisConnectLocator();
+        locator.setMantisConnectPortEndpointAddress(url);
 
-		return locator.getMantisConnectPort();
-	}
+        return locator.getMantisConnectPort();
+    }
 
 }

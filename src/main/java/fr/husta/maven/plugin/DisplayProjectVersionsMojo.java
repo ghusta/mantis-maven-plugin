@@ -24,14 +24,14 @@ import fr.husta.maven.plugin.util.MantisUtils;
 public class DisplayProjectVersionsMojo extends AbstractSecureMantisMojo
 {
 
-    @Parameter(defaultValue = "${project}", readonly = true )
+    @Parameter(defaultValue = "${project}", readonly = true)
     protected MavenProject project;
 
     @Parameter(property = "mantis.projectName", defaultValue = "${project.artifactId}", required = true)
     protected String projectName;
 
     @Override
-	public void execute() throws MojoExecutionException, MojoFailureException
+    public void execute() throws MojoExecutionException, MojoFailureException
     {
 
         try
@@ -71,9 +71,8 @@ public class DisplayProjectVersionsMojo extends AbstractSecureMantisMojo
         getLog().info("Versions : ");
         // header
         getLog().info(StringUtils.repeat("*", 60));
-        getLog().info(
-                "*" + StringUtils.center("NAME", 30) + "*" + StringUtils.center("RELEASED", 20) + "*"
-                        + StringUtils.center("OBSOLETE", 20) + "*");
+        getLog().info("*" + StringUtils.center("NAME", 30) + "*" + StringUtils.center("RELEASED", 20) + "*"
+                + StringUtils.center("OBSOLETE", 20) + "*");
         for (int i = 0; i < projectVersions.length; i++)
         {
             displayVersion(projectVersions[i]);
@@ -84,10 +83,9 @@ public class DisplayProjectVersionsMojo extends AbstractSecureMantisMojo
 
     private void displayVersion(ProjectVersionData projectVersionData)
     {
-        getLog().info(
-                "*" + StringUtils.left(projectVersionData.getName(), 30) + "*"
-                        + StringUtils.center(projectVersionData.getReleased() ? "X" : " ", 20) + "*"
-                        + StringUtils.center(projectVersionData.getObsolete() ? "X" : " ", 20) + "*");
+        getLog().info("*" + StringUtils.left(projectVersionData.getName(), 30) + "*"
+                + StringUtils.center(projectVersionData.getReleased() ? "X" : " ", 20) + "*"
+                + StringUtils.center(projectVersionData.getObsolete() ? "X" : " ", 20) + "*");
     }
 
 }

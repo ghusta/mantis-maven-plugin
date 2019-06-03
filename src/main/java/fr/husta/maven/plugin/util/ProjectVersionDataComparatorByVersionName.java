@@ -13,7 +13,7 @@ public class ProjectVersionDataComparatorByVersionName implements Comparator<Pro
 {
 
     @Override
-	public int compare(ProjectVersionData o1, ProjectVersionData o2)
+    public int compare(ProjectVersionData o1, ProjectVersionData o2)
     {
         // sort #1
         // first by released

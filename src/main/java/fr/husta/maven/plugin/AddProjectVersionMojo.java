@@ -28,7 +28,6 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 
 import biz.futureware.mantis.rpc.soap.client.MantisConnectPortType;
-
 import fr.husta.maven.plugin.util.MantisConnector;
 import fr.husta.maven.plugin.util.MantisUtils;
 import fr.husta.maven.plugin.util.ReleaseUtils;
@@ -40,7 +39,7 @@ import fr.husta.maven.plugin.util.ReleaseUtils;
 public class AddProjectVersionMojo extends AbstractSecureMantisMojo
 {
 
-    @Parameter(defaultValue = "${project}", readonly = true )
+    @Parameter(defaultValue = "${project}", readonly = true)
     protected MavenProject project;
 
     @Parameter(property = "mantis.projectName", defaultValue = "${project.artifactId}", required = true)
@@ -52,7 +51,7 @@ public class AddProjectVersionMojo extends AbstractSecureMantisMojo
     protected IssueManagement issueManagement;
 
     @Override
-	public void execute() throws MojoExecutionException
+    public void execute() throws MojoExecutionException
     {
         issueManagement = project.getIssueManagement();
         if (issueManagement != null)
@@ -61,8 +60,7 @@ public class AddProjectVersionMojo extends AbstractSecureMantisMojo
             getLog().debug("IssueManagement -> url = " + issueManagement.getUrl());
 
             final String ISSUE_MNGT_MANTIS = "Mantis";
-            if (issueManagement.getSystem() != null
-                    && !ISSUE_MNGT_MANTIS.equals(issueManagement.getSystem()))
+            if (issueManagement.getSystem() != null && !ISSUE_MNGT_MANTIS.equals(issueManagement.getSystem()))
             {
                 getLog().warn("IssueManagement -> system should be set to '" + ISSUE_MNGT_MANTIS + "'.");
             }

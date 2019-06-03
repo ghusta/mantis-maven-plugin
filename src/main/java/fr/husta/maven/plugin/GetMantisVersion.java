@@ -19,7 +19,7 @@ public class GetMantisVersion extends AbstractMantisMojo
 {
 
     @Override
-	public void execute() throws MojoExecutionException, MojoFailureException
+    public void execute() throws MojoExecutionException, MojoFailureException
     {
         try
         {
