@@ -45,7 +45,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.7.0</version>
+				<version>3.8.0</version>
 				<configuration>
 					<!-- http://maven.apache.org/plugins/maven-compiler-plugin/ -->
 					<source>1.7</source>
@@ -83,7 +83,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-plugin-plugin</artifactId>
-				<version>3.5.2</version>
+				<version>3.6.0</version>
 				<configuration>
 					<goalPrefix>mantis</goalPrefix>
 
@@ -110,9 +110,9 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>versions-maven-plugin</artifactId>
-				<version>2.5</version>
+				<version>2.7</version>
 			</plugin>
-			
+
 			<!-- *** REPORTING *** -->
 			<!-- PLUGIN SITE -->
 			<plugin>
@@ -125,7 +125,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>2.9</version>
+				<version>3.0.0</version>
 			</plugin>
 
 			<!-- PLUGIN CHANGES -->
@@ -157,13 +157,13 @@
 			<version>3.0-alpha-2</version>
 		</dependency>
 
-		<!-- To be able to use Maven Plugin Java 5 Annotations, add this artifact 
+		<!-- To be able to use Maven Plugin Java 5 Annotations, add this artifact
 			to your project dependencies in pom.xml -->
 		<dependency>
 			<groupId>org.apache.maven.plugin-tools</groupId>
 			<artifactId>maven-plugin-annotations</artifactId>
 			<version>3.5.2</version>
-			<!-- annotations are not needed for plugin execution so you can remove 
+			<!-- annotations are not needed for plugin execution so you can remove
 				this dependency for execution with using provided scope -->
 			<scope>provided</scope>
 		</dependency>
@@ -180,7 +180,7 @@
 			<artifactId>mantis-axis-soap-client</artifactId>
 			<version>1.2.19</version>
 		</dependency>
-		<!-- <dependency> <groupId>com.googlecode</groupId> <artifactId>mantis-java-api</artifactId> 
+		<!-- <dependency> <groupId>com.googlecode</groupId> <artifactId>mantis-java-api</artifactId>
 			<version>0.0.3</version> </dependency> -->
 
 		<dependency>
